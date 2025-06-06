@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Identify a Plant - Plant Conservation System</title>
+  <link rel="stylesheet" href="static/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    :root {
+      --primary-color: #27ae60;
+      --primary-dark: #219653;
+      --light-bg: #f6f8fa;
+      --card-bg: #ffffff;
+      --text-color: #333;
+      --text-light: #555;
+      --border-radius: 18px;
+      --box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      --transition: all 0.3s ease;
+    }
+    body {
+      background: var(--light-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.2rem;
+    }
+    .navbar {
+      background: var(--card-bg);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .logo-icon {
+      color: var(--primary-color);
+      font-size: 1.8rem;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-color);
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.8rem;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-color);
+    }
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn {
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1rem;
+    }
+    .btn-primary {
+      background: var(--primary-color);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+    }
+    .btn-secondary:hover {
+      background: rgba(39, 174, 96, 0.1);
+      transform: translateY(-2px);
+    }
+    .btn-close {
+      background: transparent;
+      border: none;
+      color: #e74c3c;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .badge-primary {
+      background: var(--primary-color);
+      color: white;
+    }
+    .badge-endangered {
+      background: #e74c3c;
+      color: white;
+    }
+    .badge-common {
+      background: #3498db;
+      color: white;
+    }
+    .badge-vulnerable {
+      background: #f39c12;
+      color: white;
+    }
+    .highlight {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    .loading-spinner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+      gap: 1.5rem;
+    }
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(39, 174, 96, 0.2);
+      border-radius: 50%;
+      border-top-color: var(--primary-color);
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .identify-outer-container {
+      max-width: 1200px;
+      margin: 2.5rem auto;
+      padding: 0 1.2rem;
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .tips-box {
+      flex: 1 1 320px;
+      min-width: 240px;
+      max-width: 320px;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 2.2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      height: 420px;
+      justify-content: center;
+    }
+    .tips-box h3 {
+      font-size: 1.18rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      letter-spacing: 0.01em;
+      color: var(--primary-color);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+    .tip {
+      background: rgba(39, 174, 96, 0.08);
+      border-radius: 10px;
+      padding: 1.1em 0.8em;
+      display: flex;
+      align-items: center;
+      gap: 0.8em;
+      font-size: 1.04rem;
+      margin-bottom: 1.1em;
+    }
+    .tip:last-child {
+      margin-bottom: 0;
+    }
+    .tip i {
+      color: var(--primary-color);
+      font-size: 1.3em;
+      flex-shrink: 0;
+    }
+    .identify-section {
+      flex: 2 1 480px;
+      min-width: 340px;
+      max-width: 650px;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 2.5rem 2rem;
+      transition: max-width 0.3s ease;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .identify-header {
+      text-align: center;
+      margin-bottom: 1.7em;
+    }
+    .identify-header h2 {
+      font-size: 1.45rem;
+      margin-bottom: 0.5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+    .identify-header p {
+      font-size: 1.05rem;
+      color: var(--text-light);
+    }
+    .upload-area {
+      border: 2.5px dashed var(--primary-color);
+      border-radius: 12px;
+      background: rgba(39, 174, 96, 0.05);
+      padding: 2.2em 1em;
+      text-align: center;
+      margin-bottom: 1.6em;
+      font-size: 1.08rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .upload-area:hover,
+    .upload-area.dragover {
+      border-color: var(--primary-dark);
+      background: rgba(39, 174, 96, 0.1);
+    }
+    .upload-area .upload-icon {
+      font-size: 2.2em;
+      color: var(--primary-color);
+      margin-bottom: 0.6em;
+    }
+    .image-preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1.5em;
+    }
+    .image-preview img {
+      max-width: 100%;
+      max-height: 300px;
+      border-radius: 8px;
+      margin-bottom: 0.5em;
+      object-fit: contain;
+    }
+    .image-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .preview-thumbnail {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #ddd;
+    }
+    .preview-item {
+      position: relative;
+    }
+    .remove-btn {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: #ff4444;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .form-buttons {
+      display: flex;
+      gap: 1em;
+      justify-content: center;
+      margin-top: 1em;
+    }
+    .note {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-top: 0.8em;
+    }
+    .result-container {
+      width: 100%;
+      padding: 24px 32px;
+      margin: 2rem auto;
+      background: var(--card-bg);
+      border-radius: 14px;
+      box-shadow: var(--box-shadow);
+    }
+    .result-content {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      padding: 1.5rem;
+      background: rgba(39, 174, 96, 0.05);
+      border-radius: 12px;
+      margin-top: 1.5rem;
+    }
+    .result-image {
+      flex: 0 0 40%;
+      max-width: 300px;
+      min-width: 200px;
+    }
+    .result-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .result-details {
+      flex: 1;
+      padding: 0 1rem;
+    }
+    .result-details p {
+      margin: 1rem 0;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .species-description {
+      margin: 1.5rem 0 0.5rem 0;
+      padding: 1rem;
+      background: rgba(39, 174, 96, 0.05);
+      border-radius: 8px;
+      border-left: 4px solid var(--primary-color);
+    }
+    .result-actions {
+      display: flex;
+      gap: 1em;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .footer-minimal {
+      padding: 1.5rem 0;
+      background: var(--card-bg);
+      text-align: center;
+      margin-top: 3rem;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    }
+    .footer-minimal-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .footer-minimal .logo-icon {
+      font-size: 1.4rem;
+      margin-right: 0.5rem;
+    }
+    .hidden {
+      display: none;
+    }
+    @media (max-width: 1100px) {
+      .identify-outer-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+      }
+      .tips-box {
+        max-width: 100%;
+        min-width: 0;
+        height: auto;
+        margin-bottom: 0.5rem;
+      }
+      .identify-section {
+        max-width: 100%;
+        min-width: 0;
+      }
+    }
+    @media (max-width: 768px) {
+      .result-content {
+        flex-direction: column;
+        align-items: center;
+      }
+      .result-image {
+        max-width: 100%;
+        flex: none;
+      }
+      .navbar .container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+    @media (max-width: 700px) {
+      .identify-outer-container {
+        padding: 0 0.3rem;
+      }
+      .tips-box,
+      .identify-section {
+        padding: 1.2rem 0.8rem;
+        border-radius: 12px;
+      }
+      .result-container {
+        padding: 16px;
+      }
+      .result-content {
+        padding: 1rem;
+      }
+      .form-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .result-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="logo-container">
+        <i class="fas fa-seedling logo-icon"></i>
+        <h1 class="logo">PlantConserve</h1>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="identify.html" class="active"><i class="fas fa-camera"></i> Identify</a></li>
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="identify-outer-container">
+        <div class="tips-box">
+          <h3><i class="fas fa-lightbulb"></i> Capture Tips</h3>
+          <div class="tip"><i class="fas fa-leaf"></i><span>Clear leaf close-up</span></div>
+          <div class="tip"><i class="fas fa-sun"></i><span>Natural lighting</span></div>
+          <div class="tip"><i class="fas fa-ruler"></i><span>Include scale reference</span></div>
+          <div class="tip"><i class="fas fa-crosshairs"></i><span>Multiple angles</span></div>
+        </div>
+        <section class="identify-section">
+          <div class="identify-header">
+            <h2><i class="fas fa-camera"></i> Plant Identification</h2>
+            <p>Upload clear photos of leaves, flowers, or stems for accurate identification</p>
+          </div>
+          <form id="identify-form" enctype="multipart/form-data" autocomplete="off">
+            <div class="upload-area" id="upload-area">
+              <i class="fas fa-cloud-upload-alt upload-icon"></i>
+              <div>Click or drag images here</div>
+              <input type="file" id="plant-image" name="plant-image" accept="image/*" multiple required hidden />
+              <button type="button" class="btn btn-secondary" id="browse-btn">Browse</button>
+              <div class="note">JPG, PNG, WEBP. Max 5 images, 5MB each.</div>
+            </div>
+            <div class="image-preview-grid hidden" id="image-preview"></div>
+            <div class="form-buttons">
+              <button type="submit" class="btn btn-primary" id="identify-btn">
+                <i class="fas fa-search"></i> Identify Plant
+              </button>
+              <button type="button" id="reset-btn" class="btn btn-secondary">
+                <i class="fas fa-redo"></i> Clear
+              </button>
+            </div>
+          </form>
+          <div id="loading" class="loading-spinner hidden">
+            <div class="spinner"></div>
+            <p>Analyzing images. This may take a moment...</p>
+          </div>
+          <div id="result" class="result-container hidden">
+            <h3>Identification Result</h3>
+            <div class="result-content">
+              <div class="result-image">
+                <img src="" alt="Identified Plant" id="result-image">
+              </div>
+              <div class="result-details">
+                <p><strong>Species:</strong> <span id="species-name" class="highlight"></span></p>
+                <p><strong>Confidence:</strong> <span id="confidence" class="badge badge-primary"></span></p>
+                <p><strong>Conservation Status:</strong> <span id="rarity-status" class="badge"></span></p>
+                <div class="species-description">
+                  <p id="species-description"></p>
+                </div>
+              </div>
+            </div>
+            <div class="result-actions">
+              <button class="btn btn-primary" id="details-btn">
+                <i class="fas fa-info-circle"></i> View Full Details
+              </button>
+              <button class="btn btn-secondary" id="new-identification">
+                <i class="fas fa-plus"></i> New Identification
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer class="footer-minimal">
+    <div class="container footer-minimal-content">
+      <i class="fas fa-seedling logo-icon">PlantConserve</i>
+      <div style="margin-top: 0.5em;">&copy; 2025 Plant Conservation System. All rights reserved.</div>
+    </div>
+  </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const uploadArea = document.getElementById('upload-area');
+  const fileInput = document.getElementById('plant-image');
+  const browseBtn = document.getElementById('browse-btn');
+  const preview = document.getElementById('image-preview');
+  const resetBtn = document.getElementById('reset-btn');
+  const form = document.getElementById('identify-form');
+  const loading = document.getElementById('loading');
+  const result = document.getElementById('result');
+  const resultImg = document.getElementById('result-image');
+  const speciesName = document.getElementById('species-name');
+  const confidence = document.getElementById('confidence');
+  const rarityStatus = document.getElementById('rarity-status');
+  const speciesDescription = document.getElementById('species-description');
+  const detailsBtn = document.getElementById('details-btn');
+  const newIdentificationBtn = document.getElementById('new-identification');
+  let detailsUrl = "";
+
+  // Handle browse button
+  browseBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    fileInput.click();
+  });
+  uploadArea.addEventListener('click', (e) => {
+    if (e.target !== browseBtn && !browseBtn.contains(e.target)) {
+      fileInput.click();
+    }
+  });
+
+  uploadArea.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    uploadArea.classList.add('dragover');
+  });
+  uploadArea.addEventListener('dragleave', () => {
+    uploadArea.classList.remove('dragover');
+  });
+  uploadArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadArea.classList.remove('dragover');
+    if (e.dataTransfer.files.length) {
+      fileInput.files = e.dataTransfer.files;
+      handleImageUpload(e.dataTransfer.files);
+    }
+  });
+  fileInput.addEventListener('change', (e) => {
+    if (e.target.files.length) {
+      handleImageUpload(e.target.files);
+    }
+  });
+  resetBtn.addEventListener('click', resetForm);
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const files = fileInput.files;
+    if (!files.length) {
+      alert('Please upload at least one image');
+      return;
+    }
+    if (files.length > 5) {
+      alert('Maximum 5 images allowed');
+      return;
+    }
+    loading.classList.remove('hidden');
+    result.classList.add('hidden');
+    try {
+      const formData = new FormData();
+      for (let i = 0; i < files.length; i++) {
+        formData.append('images', files[i]);
+      }
+      const response = await fetch('http://localhost:5000/api/predict', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error(`Server error: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      // Show the first image as the result image
+      resultImg.src = URL.createObjectURL(files[0]);
+      speciesName.textContent = data.species;
+      confidence.textContent = `${(data.confidence * 100).toFixed(1)}%`;
+
+      // Set badge class based on status
+      const status = data.conservation_status.toLowerCase();
+      rarityStatus.className = `badge ${
+        status.includes('endangered') ? 'badge-endangered' :
+        status.includes('vulnerable') ? 'badge-vulnerable' : 'badge-common'
+      }`;
+
+      rarityStatus.textContent = data.conservation_status;
+      speciesDescription.textContent = data.description;
+      detailsUrl = data.details_url || "";
+
+      result.classList.remove('hidden');
+      loading.classList.add('hidden');
+      result.scrollIntoView({ behavior: 'smooth' });
+
+    } catch (error) {
+      console.error('Identification failed:', error);
+      loading.classList.add('hidden');
+      alert(`Identification failed: ${error.message}`);
+    }
+  });
+
+  detailsBtn.addEventListener('click', () => {
+    if (detailsUrl) {
+      window.open(detailsUrl, '_blank');
+    } else {
+      alert('No further details available for this species.');
+    }
+  });
+  newIdentificationBtn.addEventListener('click', resetForm);
+
+  function handleImageUpload(files) {
+    preview.innerHTML = '';
+    Array.from(files).forEach(file => {
+      if (!file.type.match('image.*')) {
+        alert('Please upload an image file');
+        return;
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        alert('File size exceeds 5MB');
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const div = document.createElement('div');
+        div.className = 'preview-item';
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.className = 'preview-thumbnail';
+        div.appendChild(img);
+        preview.appendChild(div);
+      };
+      reader.readAsDataURL(file);
+    });
+    preview.classList.remove('hidden');
+    uploadArea.classList.add('hidden');
+  }
+
+  function resetForm() {
+    preview.classList.add('hidden');
+    uploadArea.classList.remove('hidden');
+    preview.innerHTML = '';
+    fileInput.value = '';
+    result.classList.add('hidden');
+    loading.classList.add('hidden');
+    detailsUrl = "";
+  }
+});
+</script>
+</body>
+</html>
+

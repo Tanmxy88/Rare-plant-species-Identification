@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="AI-powered plant identification and conservation system">
+  <title>Plant Conservation System - Home</title>
+  <link rel="stylesheet" href="static/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .cta-section .container, .cta-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .footer-minimal {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 8px 0 8px 0 !important;
+      background: var(--dark, #222);
+      color: #fff;
+      min-height: 100px;
+    }
+    .footer-minimal-content {
+      text-align: right;
+    }
+    .footer-minimal .footer-logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 0.2em;
+    }
+    /* Hero Section with Plant Background */
+    .hero {
+      position: relative;
+      z-index: 1;
+      background: none;
+      overflow: hidden;
+    }
+    .hero-bg-plant {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=900&q=80') center 30%/cover no-repeat;
+      opacity: 0.16;
+      pointer-events: none;
+      filter: blur(1.5px);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      background: rgba(255,255,255,0.80);
+      border-radius: 18px;
+      padding: 2.2em 2em;
+      margin-bottom: 2em;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      text-align: center;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-content h2 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 0.6em;
+      letter-spacing: 0.01em;
+      color: #219653;
+    }
+    .hero-content p {
+      font-size: 1.18rem;
+      color: #333;
+      margin-bottom: 1.3em;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 1.2em;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0.7em;
+    }
+    .hero-cta a {
+      font-size: 1.08rem;
+      padding: 0.8em 1.5em;
+    }
+    .hero-image {
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: 900px) {
+      .hero-content {
+        padding: 1.2em 0.7em;
+      }
+      .hero-content h2 {
+        font-size: 1.3rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="logo-container">
+        <i class="fas fa-seedling logo-icon"></i>
+        <h1 class="logo">PlantConserve</h1>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="identify.html"><i class="fas fa-camera"></i> Identify</a></li>
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-bg-plant"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h2>Protecting Earth's Botanical Heritage</h2>
+          <p>AI-powered identification and preservation of rare and endangered plant species</p>
+          <div class="hero-cta">
+            <a href="identify.html" class="btn-primary">
+              <i class="fas fa-camera"></i> Identify a Plant
+            </a>
+            <a href="about.html" class="btn-secondary">
+              <i class="fas fa-leaf"></i> Learn More
+            </a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="plant-grid">
+            <div class="plant-card" style="background-image: url('https://images.unsplash.com/photo-1527482797697-8795b05a13fe')"></div>
+            <div class="plant-card" style="background-image: url('https://images.unsplash.com/photo-1463154545680-d59320fd685d')"></div>
+            <div class="plant-card" style="background-image: url('https://images.unsplash.com/photo-1470114716159-e389f8712fda')"></div>
+            <div class="plant-card" style="background-image: url('https://images.unsplash.com/photo-1485955900006-10f4d324d411')"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features container">
+      <h2 class="section-title">Why Choose PlantConserve</h2>
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3>Advanced AI Technology</h3>
+          <p>Hybrid CNN + KNN model for precise plant species identification.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3>Global Botanical Database</h3>
+          <p>Access verified records of rare, medicinal, and endangered plants from worldwide sources.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Conservation Community</h3>
+          <p>Connect with researchers, conservationists, and enthusiasts preserving biodiversity.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Mobile Friendly</h3>
+          <p>Identify plants in the field with our responsive, mobile-optimized platform.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to Identify Plants?</h2>
+          <p>Join thousands of users helping to preserve botanical diversity.</p>
+          <a href="identify.html" class="btn-primary btn-large">
+            <i class="fas fa-camera"></i> Start Identification
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-minimal">
+    <div class="container footer-minimal-content">
+      <i class="fas fa-seedling logo-icon">   PlantConserve</i>
+      <div style="margin-top: 0.5em;">&copy; 2025 Plant Conservation System. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Dark mode toggle
+    const darkToggle = document.getElementById('dark-mode-toggle');
+    const darkIcon = darkToggle ? darkToggle.querySelector('i') : null;
+    if (darkToggle && darkIcon) {
+      darkToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        if (document.body.classList.contains('dark-mode')) {
+          localStorage.setItem('theme', 'dark');
+          darkIcon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+          localStorage.removeItem('theme');
+          darkIcon.classList.replace('fa-sun', 'fa-moon');
+        }
+      });
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        darkIcon.classList.replace('fa-moon', 'fa-sun');
+      }
+    }
+
+    // Navbar toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+        navToggle.classList.toggle('open');
+      });
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('show');
+          navToggle.classList.remove('open');
+        });
+      });
+    }
+  </script>
+</body>
+</html>

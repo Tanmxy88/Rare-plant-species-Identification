@@ -1,0 +1,147 @@
+{
+  "Shotomuli": {
+    "status": "Endangered",
+    "description": "Endemic to Eastern Himalayas. Threatened by habitat loss and overharvesting for medicinal use.",
+    "details_url": "https://www.iucnredlist.org/species/192186173/192186175"
+  },
+  "Agnishikha": {
+    "status": "Vulnerable",
+    "description": "Deciduous forest species from Western Ghats. Population declining due to urbanization.",
+    "details_url": "https://indiabiodiversity.org/species/show/313773"
+  },
+  "Anantamul": {
+    "status": "Near Threatened",
+    "description": "Hemidesmus indicus. Overharvested for Ayurvedic medicine. Protected under NTFP in Kerala.",
+    "details_url": "https://en.wikipedia.org/wiki/Hemidesmus_indicus"
+  },
+  "Hemidesmus indicus": {
+    "status": "Near Threatened",
+    "description": "Hemidesmus indicus. Overharvested for Ayurvedic medicine. Protected under NTFP in Kerala.",
+    "details_url": "https://en.wikipedia.org/wiki/Hemidesmus_indicus"
+  },
+  "Apang": {
+    "status": "Least Concern",
+    "description": "Achyranthes aspera. Widespread but monitored for sustainable use in traditional medicine.",
+    "details_url": "https://indiabiodiversity.org/species/show/229337"
+  },
+  "Achyranthes aspera": {
+    "status": "Least Concern",
+    "description": "Achyranthes aspera. Widespread but monitored for sustainable use in traditional medicine.",
+    "details_url": "https://indiabiodiversity.org/species/show/229337"
+  },
+  "Ayapan": {
+    "status": "Vulnerable",
+    "description": "Eupatorium triplinerve. Native to Amazon but endangered in Indian Western Ghats due to habitat fragmentation.",
+    "details_url": "https://econutnatural.com/ayapan-eupatorium-triplinerve-uses-benefits-side-effects/"
+  },
+  "Eupatorium triplinerve": {
+    "status": "Vulnerable",
+    "description": "Eupatorium triplinerve. Native to Amazon but endangered in Indian Western Ghats due to habitat fragmentation.",
+    "details_url": "https://econutnatural.com/ayapan-eupatorium-triplinerve-uses-benefits-side-effects/"
+  },
+  "Bamonhati": {
+    "status": "Critically Endangered",
+    "description": "Endemic to Assam's rainforests. <200 mature individuals remain (IUCN 2023).",
+    "details_url": "https://www.iucnredlist.org/species/145821003/145821005"
+  },
+  "Basok": {
+    "status": "Least Concern",
+    "description": "Clerodendrum viscosum. Common but protected in Karnataka's sacred groves.",
+    "details_url": "https://indiabiodiversity.org/species/show/231794"
+  },
+  "Clerodendrum viscosum": {
+    "status": "Least Concern",
+    "description": "Clerodendrum viscosum. Common but protected in Karnataka's sacred groves.",
+    "details_url": "https://indiabiodiversity.org/species/show/231794"
+  },
+  "Betal": {
+    "status": "Data Deficient",
+    "description": "Piper betle. Cultivated widely but wild variants need study. Potential genetic erosion.",
+    "details_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:681396-1"
+  },
+  "Piper betle": {
+    "status": "Data Deficient",
+    "description": "Piper betle. Cultivated widely but wild variants need study. Potential genetic erosion.",
+    "details_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:681396-1"
+  },
+  "Chapalish": {
+    "status": "Endangered",
+    "description": "Artocarpus chama. Threatened by logging in Meghalaya. CITES Appendix II listed.",
+    "details_url": "https://www.iucnredlist.org/species/33190/9760819"
+  },
+  "Artocarpus chama": {
+    "status": "Endangered",
+    "description": "Artocarpus chama. Threatened by logging in Meghalaya. CITES Appendix II listed.",
+    "details_url": "https://www.iucnredlist.org/species/33190/9760819"
+  },
+  "Gainura": {
+    "status": "Vulnerable",
+    "description": "Calamus rotang. Overexploited for cane furniture. Protected under Wildlife Protection Act Schedule VI.",
+    "details_url": "https://indiabiodiversity.org/species/show/250804"
+  },
+  "Calamus rotang": {
+    "status": "Vulnerable",
+    "description": "Calamus rotang. Overexploited for cane furniture. Protected under Wildlife Protection Act Schedule VI.",
+    "details_url": "https://indiabiodiversity.org/species/show/250804"
+  },
+  "Kalochitra": {
+    "status": "Critically Endangered",
+    "description": "Memecylon umbellatum. <50 mature plants in Silent Valley National Park (Kerala).",
+    "details_url": "https://www.iucnredlist.org/species/50126592/50126595"
+  },
+  "Memecylon umbellatum": {
+    "status": "Critically Endangered",
+    "description": "Memecylon umbellatum. <50 mature plants in Silent Valley National Park (Kerala).",
+    "details_url": "https://www.iucnredlist.org/species/50126592/50126595"
+  },
+  "Kalodhutura": {
+    "status": "Endangered",
+    "description": "Datura metel. Wild populations declining due to pesticide drift in agricultural zones.",
+    "details_url": "https://indiabiodiversity.org/species/show/266250"
+  },
+  "Datura metel": {
+    "status": "Endangered",
+    "description": "Datura metel. Wild populations declining due to pesticide drift in agricultural zones.",
+    "details_url": "https://indiabiodiversity.org/species/show/266250"
+  },
+  "Kalomegh": {
+    "status": "Least Concern",
+    "description": "Andrographis paniculata. Cultivated extensively but wild gene pool protected in Odisha.",
+    "details_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:45747-1"
+  },
+  "Andrographis paniculata": {
+    "status": "Least Concern",
+    "description": "Andrographis paniculata. Cultivated extensively but wild gene pool protected in Odisha.",
+    "details_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:45747-1"
+  },
+  "Punarnava": {
+    "status": "Near Threatened",
+    "description": "Boerhavia diffusa. IUCN notes 30% habitat loss in Deccan Plateau since 2000.",
+    "details_url": "https://www.iucnredlist.org/species/177384/7419086"
+  },
+  "Boerhavia diffusa": {
+    "status": "Near Threatened",
+    "description": "Boerhavia diffusa. IUCN notes 30% habitat loss in Deccan Plateau since 2000.",
+    "details_url": "https://www.iucnredlist.org/species/177384/7419086"
+  },
+  "Ramtulsi": {
+    "status": "Least Concern",
+    "description": "Ocimum tenuiflorum. Sacred plant with stable populations but monitored for genetic diversity.",
+    "details_url": "https://indiabiodiversity.org/species/show/230579"
+  },
+  "Ocimum tenuiflorum": {
+    "status": "Least Concern",
+    "description": "Ocimum tenuiflorum. Sacred plant with stable populations but monitored for genetic diversity.",
+    "details_url": "https://indiabiodiversity.org/species/show/230579"
+  },
+  "Sarpaghandha": {
+    "status": "Critically Endangered",
+    "description": "Rauvolfia serpentina. <250 mature plants in wild (IUCN 2023). CITES Appendix II.",
+    "details_url": "https://www.iucnredlist.org/species/33648/9798183"
+  },
+  "Rauvolfia serpentina": {
+    "status": "Critically Endangered",
+    "description": "Rauvolfia serpentina. <250 mature plants in wild (IUCN 2023). CITES Appendix II.",
+    "details_url": "https://www.iucnredlist.org/species/33648/9798183"
+  }
+}

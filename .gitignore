@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+env/
+.env
+
+# Data and models
+uploads/
+datasets/
+*.keras
+*.h5
+*.pth
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Local secrets
+secrets.json

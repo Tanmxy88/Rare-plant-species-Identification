@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About - Plant Conservation System</title>
+  <link rel="stylesheet" href="static/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: #f6f8fa;
+    }
+    .about-main-container {
+      max-width: 1100px;
+      margin: 2.5rem auto 2.5rem auto;
+      padding: 0 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .about-header {
+      text-align: center;
+      margin-bottom: 2.5em;
+    }
+    .about-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+      letter-spacing: 0.01em;
+      color: #219653;
+    }
+    .about-header p {
+      font-size: 1.12rem;
+      color: #333;
+      margin: 0;
+    }
+    .about-row {
+      display: flex;
+      gap: 2.5rem;
+      width: 100%;
+      justify-content: center;
+      align-items: stretch;
+    }
+    .about-card {
+      flex: 1 1 380px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      padding: 2.2em 1.7em;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .about-card h3 {
+      font-size: 1.18rem;
+      color: #219653;
+      font-weight: 600;
+      margin-bottom: 0.7em;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    .about-card p {
+      font-size: 1.02rem;
+      color: #444;
+      margin: 0;
+    }
+    .about-card ul {
+      margin: 0.8em 0 0 1.2em;
+      padding: 0;
+      color: #444;
+      font-size: 1.01rem;
+    }
+    .about-card li {
+      margin-bottom: 0.4em;
+    }
+    .about-authors {
+      margin-top: 2.5em;
+      font-size: 1.01rem;
+      color: #555;
+      text-align: center;
+    }
+    .about-authors strong {
+      color: #222;
+      font-weight: 600;
+    }
+    @media (max-width: 900px) {
+      .about-row {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .about-card {
+        max-width: 100%;
+      }
+    }
+    @media (max-width: 600px) {
+      .about-main-container {
+        padding: 0 0.4rem;
+      }
+      .about-card {
+        padding: 1.2em 0.7em;
+        border-radius: 10px;
+      }
+      .about-header h2 {
+        font-size: 1.3rem;
+      }
+      .about-header p {
+        font-size: 1rem;
+      }
+    }
+    .footer-minimal {
+      padding: 8px 0 8px 0 !important;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="logo-container">
+        <i class="fas fa-seedling logo-icon"></i>
+        <h1 class="logo">PlantConserve</h1>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="identify.html"><i class="fas fa-camera"></i> Identify</a></li>
+          <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> About</a></li>
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms</a></li>
+        </ul>
+        
+      </nav>
+    </div>
+  </header>
+
+  <main class="about-main-container">
+    <section class="about-header">
+      <h2><i class="fas fa-seedling"></i> About PlantConserve</h2>
+      <p>Preserving botanical diversity through technology and community.</p>
+    </section>
+    <div class="about-row">
+      <div class="about-card">
+        <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+        <p>
+          PlantConserve uses AI to identify and catalog rare and endangered plant species, helping support conservation efforts and biodiversity monitoring.
+        </p>
+      </div>
+      <div class="about-card">
+        <h3><i class="fas fa-history"></i> Project Overview</h3>
+        <p>
+           Our hybrid model combines deep learning and morphological analysis to classify plants using image features like leaf contours and venation. Originally designed for desktop use, the system can be upgraded for mobile and remote field environments, enabling real-time, offline plant identification for researchers and citizen scientists.
+        </p>
+        <ul>
+          <li>Convolutional Neural Networks (CNN) for feature extraction</li>
+          <li>K-Nearest Neighbors (KNN) for classification</li>
+          <li>Transfer learning and data augmentation for robustness</li>
+        </ul>
+      </div>
+    </div>
+    <div class="about-authors">
+      <div>
+        <strong>Project Authors:</strong><br>
+        Prof. Vrunda Mahajan, Mr. Harshal Bhandalkar, Mr. Tanmay Kadam, Ms. Aditi Adhav, Mr. Tejas Rathod<br>
+        Dept. of Computer Engineering, Dr. D Y Patil Institute Of Technology, Pimpri, Pune, India
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer-minimal">
+    <div class="container footer-minimal-content">
+      <i class="fas fa-seedling logo-icon">   PlantConserve</i>
+      <div style="margin-top: 0.5em;">&copy; 2025 Plant Conservation System. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Dark mode and nav toggle (same as index.html)
+    const darkToggle = document.getElementById('dark-mode-toggle');
+    const darkIcon = darkToggle.querySelector('i');
+    darkToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+        darkIcon.classList.replace('fa-moon', 'fa-sun');
+      } else {
+        localStorage.removeItem('theme');
+        darkIcon.classList.replace('fa-sun', 'fa-moon');
+      }
+    });
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+      darkIcon.classList.replace('fa-moon', 'fa-sun');
+    }
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+      navToggle.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+        navToggle.classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>
