@@ -1,25 +1,27 @@
-# Python
+# Python cache and virtualenv
 __pycache__/
-*.py[cod]
-venv/
+*.pyc
+*.pyo
+*.pyd
 env/
-.env
+venv/
+.venv/
 
-# Data and models
-uploads/
+# Data, models, and large files
 datasets/
+uploads/
 *.keras
 *.h5
 *.pth
+*.ckpt
+backend/taxon.txt
 
-# IDE
+# System/IDE files
+.DS_Store
 .vscode/
 .idea/
-.DS_Store
-
-# Logs
-logs/
 *.log
 
-# Local secrets
+# Secrets
+.env
 secrets.json
