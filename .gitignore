@@ -12,9 +12,10 @@ datasets/
 uploads/
 *.keras
 *.h5
-*.pth
+*.pthgti 
 *.ckpt
 backend/taxon.txt
+taxon.txt
 
 # System/IDE files
 .DS_Store

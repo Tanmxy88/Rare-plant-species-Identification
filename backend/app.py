@@ -80,7 +80,7 @@ app.config.update({
 })
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
-PLANTNET_API_KEY = "2b10e7KaOlBkanEmJezu6PnQn"
+PLANTNET_API_KEY = "2b10acfLLkhlHgUAN4JXMJkI"
 
 def identify_with_plantnet(image_paths):
     url = f"https://my-api.plantnet.org/v2/identify/all?api-key={PLANTNET_API_KEY}"
